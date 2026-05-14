@@ -1,0 +1,45 @@
+site_name: Civic & Democracy Organizations Wiki
+site_description: A navigable reference of organizations in the civic and democracy space.
+
+# When the repo goes public, update the two lines below to your GitHub details.
+# site_url: https://YOUR-USERNAME.github.io/civic-orgs-wiki/
+# repo_url: https://github.com/YOUR-USERNAME/civic-orgs-wiki
+
+theme:
+  name: material
+  features:
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.suggest
+    - content.action.edit
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+
+# The nav block defines the broad-to-fine sidebar.
+# To add a category: create docs/categories/your-category.md and add a line here.
+# To add an organization: create docs/organizations/your-org.md (no nav edit needed -
+#   it is reached through its category page) OR list it here if you want it in the sidebar.
+nav:
+  - Home: index.md
+  - Categories:
+      - Bridging Political Divides: categories/bridging-political-divides.md
+      - Civic Tech for Deliberation & Participation: categories/civic-tech-for-deliberation.md
+      - Open Inquiry in Academia: categories/open-inquiry-in-academia.md
+      - Digital Sovereignty & Data Governance: categories/digital-sovereignty-and-data-governance.md
+      - Information Ecosystem & Media Transparency: categories/information-ecosystem-and-media-transparency.md
+      - Tech & Social Cohesion (Prosocial Design): categories/tech-and-social-cohesion.md
+      - Regenerative & Systems-Change Civic Movements: categories/regenerative-systems-change-movements.md
+      - International Justice & Human Rights: categories/international-justice-and-human-rights.md
+      - Outlier (Non-Democracy): categories/outlier-non-democracy.md
+  - How to Contribute: contributing.md
+
+markdown_extensions:
+  - admonition
+  - toc:
+      permalink: true
+
+plugins:
+  - search

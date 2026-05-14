@@ -2,8 +2,8 @@ site_name: Civic & Democracy Organizations Wiki
 site_description: A navigable reference of organizations in the civic and democracy space.
 
 # When the repo goes public, update the two lines below to your GitHub details.
-# site_url: https://YOUR-USERNAME.github.io/civic-orgs-wiki/
-# repo_url: https://github.com/YOUR-USERNAME/civic-orgs-wiki
+site_url: https://agjesdal.github.io/civic-orgs-wiki/
+repo_url: https://github.com/agjesdal/civic-orgs-wiki
 
 theme:
   name: material

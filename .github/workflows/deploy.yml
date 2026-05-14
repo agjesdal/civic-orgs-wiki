@@ -1,0 +1,54 @@
+# Builds the MkDocs site and publishes it to GitHub Pages.
+#
+# This runs automatically on every push to the main branch.
+# NOTE: GitHub Pages publishing requires the repository to be PUBLIC
+# (on the free plan). While the repo is private this workflow will run
+# but the site will not be publicly served until you switch to public
+# and enable Pages under Settings -> Pages -> Source: GitHub Actions.
+
+name: Deploy wiki
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:        # lets you trigger it manually from the Actions tab
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install MkDocs and theme
+        run: pip install mkdocs-material
+
+      - name: Build the site
+        run: mkdocs build --strict
+
+      - name: Upload the built site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
